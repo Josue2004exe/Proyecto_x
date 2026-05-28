@@ -1,0 +1,57 @@
+{
+    "categorias": [
+        {
+            "id": 1,
+            "nombre": "Ferretería General",
+            "descripcion": "Herramientas y consumibles",
+            "estado": true
+        }
+    ],
+    "proveedores": [
+        {
+            "id": 1,
+            "ruc": "0913303475001",
+            "nombre": "Corporación Ferretera Morales",
+            "telefono": "0987654321",
+            "direccion": "Av. Universitaria, Milagro",
+            "producto_asociado": [
+                1
+            ],
+            "estado": true
+        }
+    ],
+    "productos": [
+        {
+            "id": 1,
+            "codigo": "FERR-01",
+            "nombre": " Taladro Percutor 20V",
+            "categoria_id": 1,
+            "precio_venta": 85.0,
+            "costo_promedio": 45.0,
+            "stock": 12,
+            "stock_minimo": 15,
+            "estado": true
+        }
+    ],
+    "movimientos": [
+        {
+            "id": 1,
+            "tipo": "VENTA",
+            "producto_id": 1,
+            "cantidad": 8,
+            "precio_unitario": 85.0,
+            "fecha": "2026-05-27 23:53:13",
+            "estado": true
+        }
+    ],
+    "kardex": [
+        {
+            "id": 1,
+            "producto_id": 1,
+            "movimiento_id": 1,
+            "saldo_stock": 12,
+            "detalle": "Registro de VENTA según transacción comercial externa.",
+            "estado": true
+        }
+    ]
+}
