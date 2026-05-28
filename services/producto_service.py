@@ -17,11 +17,9 @@ class ProductoService:
             return
 
         nombre = pedir_texto("Nombre del artículo: ")
-        cat_id = pedir_entero("ID de la categoria asociada: ")
-
-        if not self.repo.buscar_por_id("categorias", int(cat_id)):
-            print("Advertencia: Esa categoria no existe actualmente en el sistema.")
-            return
+        cat_id = pedir_entero(
+            "ID de la categoria asociada: ", validacion_extra=lambda id_buscado: self.repo.buscar_por_id("categorias", id_buscado) is not None
+            )
 
         costo = pedir_decimal("Costo unitario inicial (Costo Promedio): $")
         precio = pedir_decimal("Precio de venta al público (PVP): $")

@@ -9,14 +9,8 @@ class ProveedorService:
     '''CRUD PROVEEDOR'''
     def registrar_proveedor(self):
         print("\n====== REGISTRAR PROVEEDORES ======")
-        identificacion = pedir_texto("RUC / Cédula del Proveedor: ")
+        ruc = pedir_texto("RUC / Cédula del Proveedor: ", validacion_extra=validar_identificacion_ecuatoriana)
 
-        es_valido, ruc = validar_identificacion_ecuatoriana(identificacion)
-        
-        if not es_valido:
-            print(" ERROR: El número ingresado no es una cédula o RUC ecuatoriano válido.")
-            return
-        
         if self.repo.buscar_por_campo("proveedores", "ruc", ruc):
             print("Error: Ya existe un proveedor registrado bajo ese RUC.")
             return

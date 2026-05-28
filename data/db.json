@@ -10,10 +10,10 @@
     "proveedores": [
         {
             "id": 1,
-            "ruc": "0913303475001",
+            "ruc": "0959420670001",
             "nombre": "Corporación Ferretera Morales",
             "telefono": "0987654321",
-            "direccion": "Av. Universitaria, Milagro",
+            "direccion": "1",
             "producto_asociado": [
                 1
             ],
@@ -24,7 +24,7 @@
         {
             "id": 1,
             "codigo": "FERR-01",
-            "nombre": " Taladro Percutor 20V",
+            "nombre": "Taladro Percutor 20V",
             "categoria_id": 1,
             "precio_venta": 85.0,
             "costo_promedio": 45.0,
@@ -40,7 +40,7 @@
             "producto_id": 1,
             "cantidad": 8,
             "precio_unitario": 85.0,
-            "fecha": "2026-05-27 23:53:13",
+            "fecha": "2026-05-28 17:55:43",
             "estado": true
         }
     ],

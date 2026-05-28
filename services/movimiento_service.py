@@ -2,7 +2,7 @@ from datetime import datetime
 from models.movimiento_inventario import MovimientoInventario
 from models.kardex import Kardex
 from utils.generador_id import generar_id_secuencial
-from utils.validaciones import pedir_texto, pedir_decimal, pedir_entero
+from utils.validaciones import pedir_texto, pedir_decimal, pedir_entero, pedir_cantidad_stock
 
 class MovimientoService:
     def __init__(self, repo):
@@ -27,11 +27,14 @@ class MovimientoService:
             print("El producto no existe.")
             return
         
-        cantidad = pedir_entero(f"Cantidad a procesar por {tipo}: ")
-        if cantidad <= 0:
-            print("La cantidad debe ser mayor a cero.")
-            return
+        cantidad = pedir_cantidad_stock(
+            f"Cantidad a procesar por {tipo} (o 0 para cancelar): ", tipo, p["stock"]
+        )
         
+        if cantidad == 0:
+            print("Transacción cancelada por el usuario.")
+            return
+
         precio_u = pedir_decimal("Precio unitario de la transacción: ")
         #El metodo .now()sirve para tomar la fecha y hora exacta del momento.
         fecha_actual = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -47,9 +50,6 @@ class MovimientoService:
             p["costo_promedio"] = round(nuevo_costo_prom, 4)
             p["stock"] = nuevo_stock
         else:
-            if p["stock"] < cantidad:
-                print(f"Error: Stock insuficiente. Stock actual disponible: {p['stock']}")
-                return
             nuevo_stock  = p["stock"] - cantidad
             p["stock"] = nuevo_stock
         

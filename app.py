@@ -52,7 +52,7 @@ def menu_proveedores():
         elif opcion == "2":
             srv_proveedor.listar_proveedores()
         elif opcion == "3":
-            srv_proveedor.modificar_proveedor()
+            srv_proveedor.modificar_proveedores()
         elif opcion == "4":
             srv_proveedor.eliminar_proveedor()
 
